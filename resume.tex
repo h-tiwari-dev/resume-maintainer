@@ -1,0 +1,314 @@
+% NOTE: This is very inspired by http://www.toofishes.net/blog/latex-resume-follow-up/
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[pdftex,
+pdfauthor={Harsh Tiwari},
+pdftitle={Harsh Tiwari - Resume},
+pdfsubject={Software Engineer Resume},
+pdfkeywords={Resume, Software Engineer}]{hyperref}
+
+%\usepackage[margin=0.75in]{geometry}
+%--- Set document margins
+%--- Before top=0.6in, bottom=0.6in
+\usepackage[left=0.75in,top=0.5in,right=0.75in,bottom=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+%--- Activation of Charter for text and CMR for math
+\usepackage[T1]{fontenc}
+%--- Font: Pagella
+%\usepackage{tgpagella}
+%--- Font: Charter
+\usepackage{charter}
+\usepackage[expert]{mathdesign}
+%--- Microtype Package
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+\usepackage{hyperref}
+\usepackage{tabu}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+%\usepackage{sectsty}
+%\subsectionfont{\usefont{T1}{qhv}{b}{n}}
+
+\usepackage{hyperref}
+%--- To customize lists
+\usepackage{enumitem}
+%--- Remove left margin from lists, suppress vertical item separation and set top 
+%--- separation to a negative value to suppress a single parskip before lists
+\setlist{leftmargin=*, noitemsep, topsep=-1\parskip}
+
+\usepackage{indentfirst}
+\usepackage{fmtcount}
+\usepackage{hyphenat}
+%--- More control to underline
+\usepackage{soul}
+%--- Flexible tables
+\usepackage{tabu}
+
+%--- Suppress page numbers
+\pagestyle{empty}
+
+
+\newcommand{\textbox}[1]{
+  \parbox{.333\textwidth}{#1}
+}
+
+\newcommand{\textboxtwo}[1]{
+  \parbox{.49\textwidth}{#1}
+}
+
+%--- Make "C++" look pretty when used in text by touching up the plus signs
+\newcommand{\CPP}
+{C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+
+\newcommand{\titlePersonalInfo}[6]{
+  \begin{center}{\huge \textbf{#1}}
+  \\#2\hspace{0.4em}
+  %{\tiny \textbullet}\hspace{0.4em}#3\hspace{0.4em}
+  $\cdotp$\hspace{0.4em}\href{mailto:#3}{#3}\hspace{0.4em}
+  $\cdotp$\hspace{0.4em}\href{http://#4}{#4}\hspace{0.4em}
+  $\cdotp$\hspace{0.4em}#5\hspace{0.4em}  
+  \end{center}
+}
+
+\newcommand{\sectionTitle}[1]{
+  \hrule
+  \vspace{-1.0em} 
+  \subsection*{\uppercase{\textbf{#1}} }
+  \vspace{-0.3em}
+    \hrule
+    \vspace{0.3em}  
+}
+
+\newcommand{\sectionTitleWithWeb}[2]{
+  \hrule
+  \vspace{-1.0em} 
+  \subsection*{\uppercase{\textbf{#1}} \hfill{\small \textit{(more at #2)}}}
+  \vspace{-0.em}
+  \hrule
+  \vspace{0.3em}  
+}
+
+\newcommand{\languageSection}[4]{
+  \vspace{-0.5em}
+  \begin{center}
+    \textbf{Languages \textendash \ }\textbf{#1}: #2. \textbf{#3}: #4.
+  \end{center}
+}
+
+\newcommand{\titleExperienceWithoutLocation}[4]{
+  \vspace{1.0em}
+  \item[]
+  {
+    \textbox{\textbf{#1}\hfill}\textbox{\hfil \textbf{#2}\hfil}\hfill \textbf{\emph{#3 \textendash \ #4}}
+  }
+}
+
+\newcommand{\titleExperienceWithLocation}[5]{
+  \vspace{1.0em}
+  \item[]
+  {
+    \textbf{#1} \hfill
+    \textbf{#2}
+  }
+  \\{\emph{#3} \hfill \emph{#4 \textendash \ #5}}
+}
+
+\newcommand{\educationInfo}[4]{
+  \vspace{1.0em}
+  \textbox{\textbf{#1}\hfill}\textboxtwo{\hfil #2 \textendash \ #3 \hfil}\ #4 
+}
+
+%\newcommand{\educationWithGPA}[9]{
+% \begin{tabular}{lllc} 
+% \textbf{#1}&#2& & \\
+% $\bullet$ \textbf{#3}& #4 \textendash #5. & GPA: #6/7.0 & \\
+% $\bullet$ \textbf{#7} & #8 \textendash #9. & GPA: #10/7.0 & \\
+% $\bullet$ \textbf{#11} & #12 \textendash #13. & GPA: #14/7.0  &\\
+ %   \end{tabular}
+%} 
+
+\setul{1pt}{.4pt}
+\setitemize{labelsep=0.4em,leftmargin=*}
+
+%\setlist[itemize]{topsep=0.25em, leftmargin=1.5pc}
+%\setlist[enumerate]{topsep=0.25em, leftmargin=1.5pc}
+
+
+
+\begin{document}
+  
+  %\begin{center}
+  % Gonzalo Martinez
+  %\end{center}
+  %\begin{center}
+  %\begin{tabu} to 1\textwidth { X[l,m] X[2,c,m] X[r,m] }
+  %   hola & hola 2 & hola 3 \\
+  %\end{tabu} 
+  %\end{center}
+  
+  \titlePersonalInfo{Harsh Tiwari}{(+91) 7355517759}{h.tiwari.dev@gmail.com}{tiwariaiharsh.com}
+  
+  % \vspace{-0.3em} 
+  %\sectionTitle{About me}
+  %\vspace{0.5em}
+  %\noindent I'm seeking a Software Engineering position involving backend systems.
+  %I give a preference to positions which leverage my background in cluster
+  %scheduling and container management with \href{aurora.apache.org}{Apache Aurora}
+  %and \href{mesos.apache.org}{Apache Mesos}.
+  
+  %\noindent I'm passionate about immutable, reliable, automated infrastructure
+  %that scales with organizational needs.
+  %\\
+  
+  %\sectionTitle{Work Experience}
+  \sectionTitleWithWeb{Work Experience}{https://gmartinezramirez.github.io}
+  %\noindent For all experience look at https://gmartinezramirez.github.io/
+  \vspace{-1.1em}
+  \begin{itemize}[noitemsep,topsep=0pt]
+    %\parskip=-0.3em
+    \titleExperienceWithoutLocation{Research Assistant}{University of Santiago}{Mar. 2016}{Present}
+      \begin{itemize}[label=\textbullet,noitemsep,topsep=0pt]
+      %\begin{itemize}[label=\textbullet]
+        %\itemsep0em
+        %\item Contributed to internal deploy system to allow users to deploy to multiple Apache Aurora zones.
+        %\item Independently worked on reducing technical debt on task specific observability tooling.
+        \item Developed an scalable architecture in the edge of the network, using Set-Top-Boxes devices as a coordinator of the resources.
+      \end{itemize}
+
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Web Developer}{Self-employed}{Mar. 2015}{Jan. 2017}
+      \begin{itemize}[label=\textbullet,noitemsep,topsep=0pt]
+        %\itemsep0em
+        \item Gathered requirements, planned and developed responsive websites using HTML, CSS and JavaScript 
+        \item Performed validation and testing of finished websites thereby achieving the client objective before the deadline.
+      \end{itemize}
+    
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Teaching Assistant}{University of Santiago}{Mar. 2012}{Dec. 2016}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item Conducted interactive discussions on a weekly basis and assisting them through question clarification. Subjects: \ul{Evolutionary Computation} (2016), \ul{Programming Paradigms} (2015\ \textendash \ 2016), \ul{Methods of Programming} (2013), \ul{Linear Algebra} (2013\ \textendash \ 2014), \ul{Introduction to Computer Programming} (2012\ \textendash \ 2016), \ul{Calculus I} (2012\ \textendash \ 2015).
+        %\item Enhanced scheduling algorithm to penalize short lived tasks to reduce wasted scheduling attempts.
+      \end{itemize}
+  \end{itemize}
+  \vspace{0.30em} 
+
+  \sectionTitle{Education}
+  \vspace{0.20em} 
+
+  \hspace*{-0.84cm}
+  \begin{tabular}[t]{llll}
+    \textbf{University of Santiago} & Santiago, Chile.& & \\
+    \textbullet\hspace{0.4em}\textbf{M.S.E. in Computer Science (c)}& Mar. 2010 \textendash  \ Expected Dec. 2017. & GPA: 5.72/7.0 & \\ [0em]
+    \textbullet\hspace{0.4em}\textbf{Computer Science Engineering} & Mar. 2010 \textendash \  Expected Dec. 2017. & GPA: 5.20/7.0 & \\ [0em]
+    \textbullet\hspace{0.4em}\textbf{B.S.E. in Computer Science Engineering} & Mar. 2010 \textendash \  Sep. 2015. & GPA: 5.20/7.0  &\\
+  \end{tabular}
+
+
+  \begin{itemize}[leftmargin=*]
+    \item \ul{Graduate Coursework:} Scalable Distributed Systems, Human Computer and Information Retrieval, Object-Oriented Programming, Evolutionary Computation.
+    \item \ul{Undergraduated Coursework:} Computer Architecture, Algorithms, Parallel Computing, Operating Systems, Data Structures, Distributed Systems, Compilers, Paradigms of Programming, Databases, Computational Theory.
+    \item \ul{M.S.E. Scholarship Recipient (2016).} Selected out of 700 students to receive \textdollar11,000 academic scholarship due to outstanding academic performance and community involvement.
+  \end{itemize}
+
+  %\vspace{0.20em}  
+  \vspace{0.30em} 
+  
+  \sectionTitleWithWeb{Independent Projects}{https://gmartinezramirez.github.io/projects}
+  %\noindent For all projects look at https://gmartinezramirez.github.io/projects/
+  %(more at https://gmartinezramirez.github.io/projects/)
+  \vspace{-0.9em}
+  \begin{itemize}
+    \parskip=-0.6em 
+    \titleExperienceWithoutLocation{Project 1 \quad C, \CPP}{github.com/gmartinezramirez/project1}{September 2015}{Present}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item Contributed to internal deploy system to allow users to deploy to multiple Apache Aurora zones.
+      \end{itemize}
+  
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Project 2 \quad C, \CPP}{github.com/gmartinezramirez/project2}{August 2014}{August 2015}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item Contributed usability fixes to the Apache Aurora command line client.
+      \end{itemize}
+
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Project 3 \quad C, \CPP}{github.com/gmartinezramirez/project3}{August 2014}{August 2015}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item Contributed usability fixes to the Apache Aurora command line client.
+      \end{itemize}
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Project 4 \quad C, \CPP}{github.com/gmartinezramirez/project4}{August 2014}{August 2015}
+    \begin{itemize}[label=\textbullet]
+      \itemsep0em
+      \item Contributed usability fixes to the Apache Aurora command line client.
+    \end{itemize}
+  \end{itemize}
+
+  \vspace{0.30em} 
+  \sectionTitle{Activities}
+  \vspace{-0.8em}
+  \begin{itemize}
+    \parskip=-0.6em 
+    %\titleExperienceWithoutLocation{Active Member}{GNU/Linux University Community}{September 2015}{Present}
+
+  
+    %\vspace{-0.6em}  
+    \titleExperienceWithoutLocation{Team Member}{Facebook Hackathon}{Chile \textendash \ 24 Hours}{Apr. 2017}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item We developed a mobile application of a chat which can be used without Internet and using DTN networks.
+      \end{itemize}
+  
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Team Member}{NASA Space Apps Hackathon}{Chile \textendash \ 36 Hours}{Apr. 2017}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item We developed a firespread simulator of a chat which can be used without Internet.
+      \end{itemize}
+
+    \vspace{-0.6em}   
+    \titleExperienceWithoutLocation{Active Member}{GNU/Linux University Community}{Dec. 2012}{Mar. 2015}
+\begin{itemize}[label=\textbullet]
+  \itemsep0em
+  \item Working with volunteers in the organization of events and talks about Free Software philosophy and programs including tutorials about installation of GNU/Linux distributions.
+\end{itemize}
+
+    \vspace{-0.6em} 
+    \titleExperienceWithoutLocation{Publications}{Co-Author}{}{}
+      \begin{itemize}[label=\textbullet]
+        \itemsep0em
+        \item Effects of Visual Representation of Search Engine Results on Performance, User Experience, and Visual Effort. ASIS\&T 2017, \ordinalnum{80} Annual Meeting of the Association, Washington D.C (Crystal City, Virginia), USA.
+      \end{itemize}
+    \end{itemize} 
+  \vspace{0.30em} 
+  
+  \sectionTitle{Skills}
+  \vspace{0.20em}
+  %\begin{itemize}[label=\textbullet]
+  % \itemsep0em
+  % \item \textbf{Programming:} \textbf{Proficient:} Java, Python \textbf{Familiar:} \CPP, Scala, Go, JavaScript
+  % \item \textbf{Libraries/Platforms:} \textbf{Prior experience:} Hadoop, Spark
+  % \item \textbf{Data/Databases:} \textbf{Prior experience:} Redis, PostgreSQL, MongoDB, Cassandra
+  % \item \textbf{Systems:} Docker
+  %\end{itemize}
+  
+    \hspace*{-0.84cm}
+    \begin{tabular}[t]{ll}
+    \textbullet\hspace{0.4em}\textbf{Programming (Proficient):} & Java, Python \\
+    \textbullet\hspace{0.4em}\textbf{Programming (Familiar):} & \CPP, Scala, Go, JavaScript \\
+    \textbullet\hspace{0.4em}\textbf{Libraries/Platforms:} & Node.js, Express, Flask, Socket.io \\
+    %\textbullet\hspace{0.4em}\textbf{Markup/Templating:} & Node.js, Express, Flask, Socket.io \\
+    \textbullet\hspace{0.4em}\textbf{Data/Databases:} &SQL, Machine Learning, MongoDB, Redis \\
+    \end{tabular}
+  
+  \languageSection{Spanish}{native}{English}{work level}
+  
+\end{document}

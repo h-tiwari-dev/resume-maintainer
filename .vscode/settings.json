@@ -1,0 +1,7 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none",
+    "latex-workshop.latexindent.path": "/Library/TeX/texbin/latexindent"
+}
